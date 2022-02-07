@@ -27,8 +27,10 @@ export default function Chat({socket,username,room})
         socket.on("recieveMessage",(data)=>{
             setMessageList((oldMessageList=>[...oldMessageList,data]))
         })
+        socket.on("roomInfo",(data)=>{
+            console.log(data)
+        })
     },[socket])
-    
     return (
     <div className="chat-window">
         <div className="chat-header">
