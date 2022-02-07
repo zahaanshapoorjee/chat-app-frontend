@@ -14,6 +14,10 @@ function App() {
     { 
         alert("Please Enter your Information...")
     } 
+    else if(room==="1")
+    {
+      alert("You are not allowed in this room...")
+    }
     else
     {
       socket.emit("joinRoom",{username:username,room:room})

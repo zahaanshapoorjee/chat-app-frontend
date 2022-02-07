@@ -49,7 +49,7 @@ export default function Chat({socket,username,room})
                 return <div className="message" id={username===mData.username?"you":"other"}>
                     <div>
                         <div className="message-content"><p>{mData.message}</p></div>
-                        <div className="message-data"><p id="time">{mData.time}</p>{usersOnline[2].username}<p id="username">{mData.username}</p></div>
+                        <div className="message-data"><p id="time">{mData.time}</p><p id="username">{mData.username}</p></div>
                     </div>
                     </div>
             })
