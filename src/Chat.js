@@ -6,7 +6,7 @@ export default function Chat({socket,username,room})
 {
     const[currentMessage, setCurrentMessage]=useState("")
     const[messageList,setMessageList]=useState([])
-    
+    const[usersOnline,setUsersOnline]=useState([])
     const sendMessage=async()=>{
         if(currentMessage!=="")
         {
@@ -28,6 +28,7 @@ export default function Chat({socket,username,room})
             setMessageList((oldMessageList=>[...oldMessageList,data]))
         })
         socket.on("roomInfo",(data)=>{
+            setUsersOnline(data.users)
             console.log(data)
         })
     },[socket])
@@ -42,7 +43,7 @@ export default function Chat({socket,username,room})
             messageList.map((mData)=>{
                 return <div className="message" id={username===mData.username?"you":"other"}>
                     <div>
-                        <div className="message-content"><p>{mData.message}</p></div>
+                        <div className="message-content"><p>{mData.message} {usersOnline.map((online)=>{return <p>{online}</p>})}</p></div>
                         <div className="message-data"><p id="time">{mData.time}</p><p id="username">{mData.username}</p></div>
                     </div>
                     </div>
