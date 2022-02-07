@@ -75,7 +75,7 @@ body {
   margin: 0;
 }
 .chat-window .chat-header {
-  height: 45px;
+  height: 60px;
   border-radius: 6px;
   background: #263238;
   position: relative;
@@ -86,7 +86,6 @@ body {
   padding: 0 1em 0 2em;
   color: #fff;
   font-weight: 700;
-  line-height: 45px;
 }
 
 .chat-window .chat-body {

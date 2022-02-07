@@ -36,7 +36,7 @@ export default function Chat({socket,username,room})
     return (
     <div className="chat-window">
         <div className="chat-header">
-            <div>ChatRoom Number: {room} Online: {
+            <div>ChatRoom Number: {room}<br></br> Online: {
                 usersOnline.map((online)=>{
                     return <span>{online.username}, </span>
                 })
