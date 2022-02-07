@@ -6,7 +6,7 @@ export default function Chat({socket,username,room})
 {
     const[currentMessage, setCurrentMessage]=useState("")
     const[messageList,setMessageList]=useState([])
-    
+    const[usersOnline, setUsersOnline] = useState([])
     const sendMessage=async()=>{
         if(currentMessage!=="")
         {
@@ -16,6 +16,7 @@ export default function Chat({socket,username,room})
                 message:currentMessage,
                 time: new Date(Date.now()).getHours()+":"+ new Date(Date.now()).getMinutes()
             }
+            socket.nickname=mData.username;
             console.log("Sending")
             console.log(mData)
             await socket.emit("sendMessage",mData)
@@ -28,11 +29,14 @@ export default function Chat({socket,username,room})
             setMessageList((oldMessageList=>[...oldMessageList,data]))
         })
     },[socket])
+    socket.on('roomData', ({room, users}) => {
+        setUsersOnline([users]);
+    })
     
     return (
     <div className="chat-window">
         <div className="chat-header">
-            <p>ChatRoom Number: {room}</p>
+            <p>ChatRoom Number: {room}, {usersOnline}</p>
         </div>
         <div className="chat-body">
         <ScrollToBottom className="message-container">
