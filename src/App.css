@@ -81,7 +81,7 @@ body {
   position: relative;
   cursor: pointer;
 }
-.chat-window .chat-header p {
+.chat-window .chat-header div {
   display: block;
   padding: 0 1em 0 2em;
   color: #fff;

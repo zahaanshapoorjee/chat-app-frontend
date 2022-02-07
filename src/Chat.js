@@ -30,12 +30,17 @@ export default function Chat({socket,username,room})
         socket.on("roomInfo",(data)=>{
             setUsersOnline(data.users)
             console.log(data)
+            console.log(data.users)
         })
     },[socket])
     return (
     <div className="chat-window">
         <div className="chat-header">
-            <p>ChatRoom Number: {room}</p>
+            <div>ChatRoom Number: {room} Online: {
+                usersOnline.map((online)=>{
+                    return <span>{online.username}, </span>
+                })
+            }</div>
         </div>
         <div className="chat-body">
         <ScrollToBottom className="message-container">
@@ -43,8 +48,8 @@ export default function Chat({socket,username,room})
             messageList.map((mData)=>{
                 return <div className="message" id={username===mData.username?"you":"other"}>
                     <div>
-                        <div className="message-content"><p>{mData.message} {usersOnline.map((online)=>{return <p>{online}</p>})}</p></div>
-                        <div className="message-data"><p id="time">{mData.time}</p><p id="username">{mData.username}</p></div>
+                        <div className="message-content"><p>{mData.message}</p></div>
+                        <div className="message-data"><p id="time">{mData.time}</p>{usersOnline[2].username}<p id="username">{mData.username}</p></div>
                     </div>
                     </div>
             })
