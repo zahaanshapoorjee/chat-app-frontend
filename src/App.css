@@ -66,8 +66,8 @@ body {
 }
 
 .chat-window {
-  width: 400px;
-  height: 520px;
+  width: 30rem;
+  height: 40rem;
   scrollbar-width: none;
 }
 
