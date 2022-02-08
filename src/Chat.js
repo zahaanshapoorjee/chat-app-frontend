@@ -37,7 +37,7 @@ export default function Chat({socket,username,room})
     return (
     <div className="chat-window">
         <div className="chat-header">
-            <div>ChatRoom Number: {room}<br></br> Online: {usersOnline.slice(0,-1).map((online)=>{return <span>{online.username}, </span>})} {usersOnline.slice(-1,1).map((online)=>{return <span>{online.username} </span>})} </div>
+            <div>ChatRoom Number: {room}<br></br> Online: {usersOnline.slice(0,-1).map((online)=>{return <span>{online.username}, </span>})} {usersOnline.slice(-1).map((online)=>{return <span>{online.username} </span>})} </div>
         </div>
         <div className="chat-body">
         <ScrollToBottom className="message-container">
