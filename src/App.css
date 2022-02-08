@@ -205,3 +205,7 @@ body {
 .hide {
   opacity: 0 !important;
 }
+.disabledInput{
+  background-color: white;
+  caret-color: rgba(0,0,0,0);
+}
