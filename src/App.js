@@ -14,9 +14,9 @@ function App() {
     { 
         alert("Please Enter your Information...")
     } 
-    else if(room==="1")
+    else if(room==="69")
     {
-      alert("You are not allowed in this room...")
+      alert("Nice")
     }
     else
     {

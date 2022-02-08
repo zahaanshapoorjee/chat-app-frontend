@@ -58,7 +58,7 @@ export default function Chat({socket,username,room})
         </div>
         <div className="chat-footer">
             { usersOnline.length>1?<input value={currentMessage} type="text" placeholder="Your Message" onChange={(e)=>{setCurrentMessage(e.target.value)}} onKeyPress={(e)=>{e.key==="Enter" && sendMessage()}}></input>:<input value={currentMessage} type="text" disabled="disabled" placeholder="Please wait for others to join the room..." onChange={(e)=>{setCurrentMessage(e.target.value)}} onKeyPress={(e)=>{e.key==="Enter" && sendMessage()}} className="disabledInput"></input>
-}
+            }
             <button onClick={sendMessage}>&#9658;</button>
         </div>
     </div>
